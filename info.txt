@@ -4,8 +4,9 @@ Builtins done till now -
 2. cd
 3. echo: -n
 4. pwd
-5. history 
+5. history
 
 Externals -
 1. cat: -n, -e
 2. date
+3. mkdir: -v, -p
