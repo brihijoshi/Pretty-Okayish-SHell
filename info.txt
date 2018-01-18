@@ -1,0 +1,11 @@
+Builtins done till now -
+
+1. exit
+2. cd
+3. echo: -n
+4. pwd
+5. history 
+
+Externals -
+1. cat: -n, -e
+2. date
