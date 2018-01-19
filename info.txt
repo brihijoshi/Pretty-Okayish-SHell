@@ -8,7 +8,7 @@ Builtins done till now -
 
 Externals -
 1. cat: -n, -e
-2. date: -u, 
+2. date: -u, -r <seconds>
 3. mkdir: -v, -p
 4. rm: -i, -v
 5. ls: -a
