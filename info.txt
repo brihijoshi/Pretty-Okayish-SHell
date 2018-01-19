@@ -11,3 +11,4 @@ Externals -
 2. date:
 3. mkdir: -v, -p
 4. rm: -i, -v
+5. ls: -a
