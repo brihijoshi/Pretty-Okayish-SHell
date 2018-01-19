@@ -110,17 +110,38 @@ int main() {
       }
       fclose(fr);
     }
-
-
     if (is_builtin(args[0]) == 0){
       args[--temp]=NULL;
       pid_t pid = fork();
       int status;
       if (pid == 0) {
-          if (execvp(args[0], args) < 0) {
+        if (strcmp(args[0],"cat")==0){
+          if (execvp("./posh_cat", args) < 0) {
               printf("Could not execute command\n");
           }
           exit(0);
+        }
+        else if (strcmp(args[0],"date")==0){
+          if (execvp("./posh_date", args) < 0) {
+              printf("Could not execute command\n");
+          }
+          exit(0);
+
+        }
+        else if (strcmp(args[0],"mkdir")==0){
+          if (execvp("./posh_mkdir", args) < 0) {
+              printf("Could not execute command\n");
+          }
+          exit(0);
+
+        }
+        else if (strcmp(args[0],"rm")==0){
+          if (execvp("./posh_rm", args) < 0) {
+              printf("Could not execute command\n");
+          }
+          exit(0);
+
+        }
       }
       else {
           wait(NULL);
