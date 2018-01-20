@@ -19,10 +19,6 @@ int is_builtin(char* cmd){
   return 0;
 }
 
-void posh_exit(){
-  break;
-}
-
 void posh_cd(char *args[100]){
   if (strcmp(args[1],"--help")==0){
     printf("cd: usage: cd [dir]\n");
@@ -40,7 +36,7 @@ void posh_cd(char *args[100]){
   }
 }
 
-void posh_echo(char *args[100]){
+void posh_echo(char *args[100], int temp){
   int len = 0;
   int num_words = 0;
   char* str;
@@ -66,7 +62,6 @@ void posh_echo(char *args[100]){
           switch (c = *s++){
             case 'a': c = '\a'; break;
             case 'b': c = '\b'; break;
-            case 'c': return EXIT_SUCCESS;
             case 'e': c = '\x1B'; break;
             case 'f': c = '\f'; break;
             case 'n': c = '\n'; break;
@@ -174,7 +169,7 @@ int main() {
     }
 
     if (strcmp(args[0], "exit")==0){
-      posh_exit();
+      break;
     }
 
     else if (strcmp(args[0],"cd") == 0){
@@ -182,7 +177,7 @@ int main() {
     }
 
     else if (strcmp(args[0],"echo") == 0){
-      posh_echo(args);
+      posh_echo(args,temp);
     }
 
     else if (strcmp(args[0],"pwd")==0){
