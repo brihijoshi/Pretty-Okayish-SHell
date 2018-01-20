@@ -90,7 +90,7 @@ void posh_echo(char *args[100], int temp){
 
 void posh_pwd(char *args[100]){
   if (strcmp(args[1],"--help")==0){
-    printf("The pwd utility writes the absolute pathname of the current working directory to the standard output.\n");
+    printf("pwd: usage: pwd\n");
   }
   else if (strcmp(args[1],"--version")==0){
     printf("pwd v1.0.1\n");
@@ -100,10 +100,17 @@ void posh_pwd(char *args[100]){
     getcwd(cwd, sizeof(cwd));
     printf("%s\n",cwd);
   }
+  else if (args[1][0] == '-'){
+    printf("-posh: pwd: %s: invalid option\n", args[1]);
+  }
   else{
     char cwd[1024];
-    getcwd(cwd, sizeof(cwd));
-    printf("%s\n",cwd);
+    if (getcwd(cwd, sizeof(cwd))==NULL){
+      printf("-posh: pwd: couldn't fetch current path\n");
+    }
+    else{
+      printf("%s\n",cwd);
+    }
   }
 }
 

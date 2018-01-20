@@ -17,4 +17,6 @@ Bugs handled -
 1. exit
 2. cd - a. Invalid directory pathname
         b. Invalid option
-3. 
+3. echo
+4. pwd - a. Invalid option
+         b. In case getcwd fails
