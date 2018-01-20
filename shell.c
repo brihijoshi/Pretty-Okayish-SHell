@@ -114,25 +114,44 @@ void posh_pwd(char *args[100]){
   }
 }
 
-void posh_history(char *args[100]){
+void posh_history(char *args[100],int temp){
   //https://ss64.com/bash/history.html
-  if(strcmp(args[1],"-c")==0){
-    FILE *fr = fopen(".posh_history","w");
-  }
-  else if (strcmp(args[1],"-w")==0){
-    FILE *new_fr = fopen(args[2],"w");
-    FILE *fr = fopen(".posh_history","r");
-    int line_num;
-    char command[255];
-    char ch = fgetc(fr);
-    while (ch != EOF){
-        fputc(ch,new_fr);
-        ch = fgetc(fr);
+  if (temp == 3){
+    if(strcmp(args[1],"-c")==0){
+      FILE *fr = fopen(".posh_history","w");
     }
-    fclose(fr);
-    fclose(new_fr);
+    else if (strcmp(args[1],"--help")==0){
+      printf("history: usage: history [-c | -w]\n");
+    }
+    else if (strcmp(args[1],"--version")==0){
+      printf("history v1.0.2\n");
+    }
+    else if (args[1][0] == '-'){
+      printf("-posh: history: %s: invalid option\n", args[1]);
+    }
+    else{
+      printf("-posh: history: %s: argument not supported\n", args[1]);
+    }
   }
-  else{
+  else if (temp == 4){
+    if (strcmp(args[1],"-w")==0){
+      FILE *new_fr = fopen(args[2],"w");
+      FILE *fr = fopen(".posh_history","r");
+      int line_num;
+      char command[255];
+      char ch = fgetc(fr);
+      while (ch != EOF){
+          fputc(ch,new_fr);
+          ch = fgetc(fr);
+      }
+      fclose(fr);
+      fclose(new_fr);
+    }
+    else{
+      printf("-posh: history: %s: invalid option\n", args[1]);
+    }
+  }
+  else if (temp == 2){
     FILE *fr = fopen(".posh_history","r");
     //printf("%d\n",&fr);
     int line_num;
@@ -185,7 +204,6 @@ int main() {
     if (strcmp(args[0], "exit")==0){
       fi = fopen(".posh_rc","w");
       putc(hist_index,fi);
-
       printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n");
       break;
     }
@@ -203,7 +221,7 @@ int main() {
     }
 
     else if (strcmp(args[0],"history")==0){
-      posh_history(args);
+      posh_history(args,temp);
     }
     if (is_builtin(args[0]) == 0){
       args[--temp]=NULL;

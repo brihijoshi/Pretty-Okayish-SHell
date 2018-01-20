@@ -4,7 +4,7 @@ Builtins done till now -
 2. cd: --help, --version (DONE)
 3. echo: -n, -e (DONE)
 4. pwd: --help, --version, -L (DONE)
-5. history: -c, -w (DONE)
+5. history: -c, -w (DONE), --help, --version
 
 Externals -
 1. cat: -n, -e (DONE)
@@ -20,3 +20,5 @@ Bugs handled -
 3. echo
 4. pwd - a. Invalid option
          b. In case getcwd fails
+5. history - a. Invalid option
+             b. Invalid argument
