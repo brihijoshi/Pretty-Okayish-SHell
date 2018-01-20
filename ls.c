@@ -44,9 +44,20 @@ int main(int argc, char const *argv[]) {
         printf("%s\n",d->d_name);
       }
     }
+    else if (strcmp(argv[1],"-i")==0){
+      p=opendir(".");
+      if(p==NULL){
+        perror("Cannot find directory");
+        return 0;
+      }
+      while((d=readdir(p))){
+        char* name = d->d_name;
+        if (name[0]!='.'){
+          stat(d->d_name,&s);
+          printf("%llu %s\n",s.st_ino,d->d_name);
+        }
 
-
-    else if (strcmp(argv[1],"-l")==0){
+      }
     }
     else{
       p=opendir(argv[1]);

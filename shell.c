@@ -175,6 +175,13 @@ int main() {
           exit(0);
 
         }
+        else if (strcmp(args[0],"ls")==0){
+          if (execvp("./posh_ls", args) < 0) {
+              printf("Could not execute command\n");
+          }
+          exit(0);
+
+        }
       }
       else {
           wait(NULL);

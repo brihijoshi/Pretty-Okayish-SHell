@@ -11,4 +11,4 @@ Externals -
 2. date: -u, -r <seconds> (DONE)
 3. mkdir: -v, -p (DONE)
 4. rm: -i, -v (DONE)
-5. ls: -a
+5. ls: -a, -i
