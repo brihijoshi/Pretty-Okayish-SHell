@@ -93,9 +93,18 @@ int main() {
     }
 
     else if (strcmp(args[0],"pwd")==0){
-      char cwd[1024];
-      getcwd(cwd, sizeof(cwd));
-      printf("%s\n",cwd);
+      if (strcmp(args[1],"--help")==0){
+        printf("The pwd utility writes the absolute pathname of the current working directory to the standard output.\n");
+      }
+      else if (strcmp(args[1],"--version")==0){
+        printf("pwd v1.0.1\n");
+      }
+      else{
+        char cwd[1024];
+        getcwd(cwd, sizeof(cwd));
+        printf("%s\n",cwd);
+      }
+
     }
 
     else if (strcmp(args[0],"history")==0){
