@@ -155,7 +155,14 @@ int main() {
   char* sep;
   char* args[100]; //Assuming 100 args at max
   size_t buf = 0;
-  int hist_index = 1 ;
+  int hist_index;
+  FILE *fi;
+  if ((fi = fopen(".posh_rc","r"))==NULL){
+    hist_index = 1;
+  }
+  else{
+    hist_index = getc(fi);
+  }
 
   while (1){
     printf("posh >>> ");
@@ -165,7 +172,7 @@ int main() {
       continue;
     }
     FILE *fw = fopen(".posh_history", "a");
-    fprintf(fw,"%d %s",hist_index++,param);
+    fprintf(fw,"\t%d  %s",hist_index++,param);
     fflush(fw);
     //printf("%s",param);
     int temp=0;
@@ -176,6 +183,10 @@ int main() {
     }
 
     if (strcmp(args[0], "exit")==0){
+      fi = fopen(".posh_rc","w");
+      putc(hist_index,fi);
+
+      printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n");
       break;
     }
 
