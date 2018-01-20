@@ -1,7 +1,7 @@
 Builtins done till now -
 
 1. exit
-2. cd
+2. cd: --help, --version (DONE)
 3. echo: -n, -e (DONE)
 4. pwd: --help, --version, -L (DONE)
 5. history: -c, -w (DONE)
@@ -12,3 +12,9 @@ Externals -
 3. mkdir: -v, -p (DONE)
 4. rm: -i, -v (DONE)
 5. ls: -a, -i (DONE)
+
+Bugs handled -
+1. exit
+2. cd - a. Invalid directory pathname
+        b. Invalid option
+3. 

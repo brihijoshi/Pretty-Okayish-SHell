@@ -4,20 +4,11 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-
-
-/*
-Brihi Joshi
-2016142
-*/
-
-
 char* BUILTINS[5] = {"cd",
                   "echo",
                   "history",
                   "pwd",
                   "exit"};
-int HISTORY = 3;
 
 int is_builtin(char* cmd){
   for (int i=0;i<5;i++){
@@ -27,6 +18,135 @@ int is_builtin(char* cmd){
   }
   return 0;
 }
+
+void posh_exit(){
+  break;
+}
+
+void posh_cd(char *args[100]){
+  if (strcmp(args[1],"--help")==0){
+    printf("cd: usage: cd [dir]\n");
+  }
+  else if (strcmp(args[1],"--version")==0){
+    printf("cd v1.0.1\n");
+  }
+  else if (args[1][0] == '-'){
+    printf("-posh: cd: %s: invalid option\n",args[1]);
+  }
+  else{
+    if (chdir(args[1]) == -1){
+      printf("-posh: cd: %s: No such file or directory\n", args[1]);
+    }
+  }
+}
+
+void posh_echo(char *args[100]){
+  int len = 0;
+  int num_words = 0;
+  char* str;
+  //checking for flags
+  if (strcmp(args[1],"-n") == 0){
+    for (int i=2;i<temp-1;i++){
+      num_words++;
+      len = len + strlen(args[i]);
+    }
+    str = malloc(len+num_words+1);
+    for (int i =2;i<temp-1;i++){
+      strcat(str,args[i]);
+      strcat(str," ");
+    }
+    str[strlen(str)-2]= '\0';
+    printf("%s",str);
+  }
+  else if (strcmp(args[1],"-e")==0){
+    char *s = args[2];
+    char c;
+    while ((c = *s++)){
+      if (c == '\\' && *s){
+          switch (c = *s++){
+            case 'a': c = '\a'; break;
+            case 'b': c = '\b'; break;
+            case 'c': return EXIT_SUCCESS;
+            case 'e': c = '\x1B'; break;
+            case 'f': c = '\f'; break;
+            case 'n': c = '\n'; break;
+            case 'r': c = '\r'; break;
+            case 't': c = '\t'; break;
+            case 'v': c = '\v'; break;
+            default:  putchar ('\\'); break;
+          }
+        }
+      putchar (c);
+    }
+  }
+  else{
+    for (int i =1;i<temp-1;i++){
+      num_words++;
+      len = len + strlen(args[i]);
+    }
+    str = malloc(len+num_words+1);
+    for (int i =1;i<temp-1;i++){
+      strcat(str,args[i]);
+      strcat(str," ");
+    }
+    printf("%s\n",str);
+  }
+}
+
+void posh_pwd(char *args[100]){
+  if (strcmp(args[1],"--help")==0){
+    printf("The pwd utility writes the absolute pathname of the current working directory to the standard output.\n");
+  }
+  else if (strcmp(args[1],"--version")==0){
+    printf("pwd v1.0.1\n");
+  }
+  else if (strcmp(args[1],"-L")==0){
+    char cwd[1024];
+    getcwd(cwd, sizeof(cwd));
+    printf("%s\n",cwd);
+  }
+  else{
+    char cwd[1024];
+    getcwd(cwd, sizeof(cwd));
+    printf("%s\n",cwd);
+  }
+}
+
+void posh_history(char *args[100]){
+  //https://ss64.com/bash/history.html
+  if(strcmp(args[1],"-c")==0){
+    FILE *fr = fopen(".posh_history","w");
+  }
+  else if (strcmp(args[1],"-w")==0){
+    FILE *new_fr = fopen(args[2],"w");
+    FILE *fr = fopen(".posh_history","r");
+    int line_num;
+    char command[255];
+    char ch = fgetc(fr);
+    while (ch != EOF){
+        fputc(ch,new_fr);
+        ch = fgetc(fr);
+    }
+    fclose(fr);
+    fclose(new_fr);
+  }
+  else{
+    FILE *fr = fopen(".posh_history","r");
+    //printf("%d\n",&fr);
+    int line_num;
+    char command[255];
+    char ch = fgetc(fr);
+    while (ch != EOF){
+        printf ("%c", ch);
+        ch = fgetc(fr);
+    }
+    fclose(fr);
+  }
+}
+
+
+
+
 
 int main() {
   char* param = malloc(128*sizeof(char*));
@@ -54,117 +174,23 @@ int main() {
     }
 
     if (strcmp(args[0], "exit")==0){
-      break;
+      posh_exit();
     }
 
     else if (strcmp(args[0],"cd") == 0){
-      chdir(args[1]);
+      posh_cd(args);
     }
 
     else if (strcmp(args[0],"echo") == 0){
-      int len = 0;
-      int num_words = 0;
-      char* str;
-      //checking for flags
-      if (strcmp(args[1],"-n") == 0){
-        for (int i=2;i<temp-1;i++){
-          num_words++;
-          len = len + strlen(args[i]);
-        }
-        str = malloc(len+num_words+1);
-        for (int i =2;i<temp-1;i++){
-          strcat(str,args[i]);
-          strcat(str," ");
-        }
-        str[strlen(str)-2]= '\0';
-        printf("%s",str);
-      }
-      else if (strcmp(args[1],"-e")==0){
-        char *s = args[2];
-        char c;
-        while ((c = *s++)){
-          if (c == '\\' && *s){
-              switch (c = *s++){
-                case 'a': c = '\a'; break;
-                case 'b': c = '\b'; break;
-                case 'c': return EXIT_SUCCESS;
-                case 'e': c = '\x1B'; break;
-                case 'f': c = '\f'; break;
-                case 'n': c = '\n'; break;
-                case 'r': c = '\r'; break;
-                case 't': c = '\t'; break;
-                case 'v': c = '\v'; break;
-                default:  putchar ('\\'); break;
-              }
-            }
-          putchar (c);
-        }
-      }
-      else{
-        for (int i =1;i<temp-1;i++){
-          num_words++;
-          len = len + strlen(args[i]);
-        }
-        str = malloc(len+num_words+1);
-        for (int i =1;i<temp-1;i++){
-          strcat(str,args[i]);
-          strcat(str," ");
-        }
-        printf("%s\n",str);
-      }
-
+      posh_echo(args);
     }
 
     else if (strcmp(args[0],"pwd")==0){
-      if (strcmp(args[1],"--help")==0){
-        printf("The pwd utility writes the absolute pathname of the current working directory to the standard output.\n");
-      }
-      else if (strcmp(args[1],"--version")==0){
-        printf("pwd v1.0.1\n");
-      }
-      else if (strcmp(args[1],"-L")==0){
-        char cwd[1024];
-        getcwd(cwd, sizeof(cwd));
-        printf("%s\n",cwd);
-      }
-      else{
-        char cwd[1024];
-        getcwd(cwd, sizeof(cwd));
-        printf("%s\n",cwd);
-      }
-
+      posh_pwd(args);
     }
 
     else if (strcmp(args[0],"history")==0){
-      //https://ss64.com/bash/history.html
-      if(strcmp(args[1],"-c")==0){
-        FILE *fr = fopen(".posh_history","w");
-      }
-      else if (strcmp(args[1],"-w")==0){
-        FILE *new_fr = fopen(args[2],"w");
-        FILE *fr = fopen(".posh_history","r");
-        int line_num;
-        char command[255];
-        char ch = fgetc(fr);
-        while (ch != EOF){
-            fputc(ch,new_fr);
-            ch = fgetc(fr);
-        }
-        fclose(fr);
-        fclose(new_fr);
-      }
-      else{
-        FILE *fr = fopen(".posh_history","r");
-        //printf("%d\n",&fr);
-        int line_num;
-        char command[255];
-        char ch = fgetc(fr);
-        while (ch != EOF){
-            printf ("%c", ch);
-            ch = fgetc(fr);
-        }
-        fclose(fr);
-      }
+      posh_history(args);
     }
     if (is_builtin(args[0]) == 0){
       args[--temp]=NULL;
@@ -200,7 +226,7 @@ int main() {
         }
         else if (strcmp(args[0],"ls")==0){
           if (execvp("./posh_ls", args) < 0) {
-              printf("Could not execute command\n");
+              printf("");
           }
           exit(0);
 
