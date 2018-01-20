@@ -2,13 +2,13 @@ Builtins done till now -
 
 1. exit
 2. cd
-3. echo: -n
-4. pwd: --help, --version, -L
-5. history: -c, -w
+3. echo: -n, -e (DONE)
+4. pwd: --help, --version, -L (DONE)
+5. history: -c, -w (DONE)
 
 Externals -
 1. cat: -n, -e (DONE)
 2. date: -u, -r <seconds> (DONE)
 3. mkdir: -v, -p (DONE)
 4. rm: -i, -v (DONE)
-5. ls: -a, -i
+5. ls: -a, -i (DONE)
