@@ -1,5 +1,6 @@
-Builtins done till now -
+FLAGS EXECUTED -
 
+Builtins-
 1. exit
 2. cd: --help, --version (DONE)
 3. echo: -n, -e (DONE)
@@ -7,18 +8,25 @@ Builtins done till now -
 5. history: -c, -w (DONE), --help, --version
 
 Externals -
-1. cat: -n, -e (DONE)
+1. cat: -n, -e, --help, --version(DONE)
 2. date: -u, -r <seconds> (DONE)
 3. mkdir: -v, -p (DONE)
 4. rm: -i, -v (DONE)
 5. ls: -a, -i (DONE)
 
-Bugs handled -
+BUGS HANDLED  -
+
+Builtins -
 1. exit
-2. cd - a. Invalid directory pathname
+2. cd: a. Invalid directory pathname
         b. Invalid option
 3. echo
-4. pwd - a. Invalid option
+4. pwd: a. Invalid option
          b. In case getcwd fails
-5. history - a. Invalid option
+5. history: a. Invalid option
              b. Invalid argument
+
+Externals -
+1. cat: a. Wont open file if we dont have read access/file doesn't exist
+        b. Invalid option
+        c. multiple file arguments shows the usage
