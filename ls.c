@@ -47,7 +47,6 @@ int main(int argc, char const *argv[]) {
 
 
     else if (strcmp(argv[1],"-l")==0){
-  
     }
     else{
       p=opendir(argv[1]);

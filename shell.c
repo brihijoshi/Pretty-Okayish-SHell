@@ -99,6 +99,11 @@ int main() {
       else if (strcmp(args[1],"--version")==0){
         printf("pwd v1.0.1\n");
       }
+      else if (strcmp(args[1],"-L")==0){
+        char cwd[1024];
+        getcwd(cwd, sizeof(cwd));
+        printf("%s\n",cwd);
+      }
       else{
         char cwd[1024];
         getcwd(cwd, sizeof(cwd));
@@ -108,16 +113,35 @@ int main() {
     }
 
     else if (strcmp(args[0],"history")==0){
-      FILE *fr = fopen(".posh_history","r");
-      //printf("%d\n",&fr);
-      int line_num;
-      char command[255];
-      char ch = fgetc(fr);
-      while (ch != EOF){
-          printf ("%c", ch);
-          ch = fgetc(fr);
+      //https://ss64.com/bash/history.html
+      if(strcmp(args[1],"-c")==0){
+        FILE *fr = fopen(".posh_history","w");
       }
-      fclose(fr);
+      else if (strcmp(args[1],"-w")==0){
+        FILE *new_fr = fopen(args[2],"w");
+        FILE *fr = fopen(".posh_history","r");
+        int line_num;
+        char command[255];
+        char ch = fgetc(fr);
+        while (ch != EOF){
+            fputc(ch,new_fr);
+            ch = fgetc(fr);
+        }
+        fclose(fr);
+        fclose(new_fr);
+      }
+      else{
+        FILE *fr = fopen(".posh_history","r");
+        //printf("%d\n",&fr);
+        int line_num;
+        char command[255];
+        char ch = fgetc(fr);
+        while (ch != EOF){
+            printf ("%c", ch);
+            ch = fgetc(fr);
+        }
+        fclose(fr);
+      }
     }
     if (is_builtin(args[0]) == 0){
       args[--temp]=NULL;

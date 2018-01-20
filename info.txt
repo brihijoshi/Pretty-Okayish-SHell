@@ -3,8 +3,8 @@ Builtins done till now -
 1. exit
 2. cd
 3. echo: -n
-4. pwd: --help, --version
-5. history
+4. pwd: --help, --version, -L
+5. history: -c, -w
 
 Externals -
 1. cat: -n, -e (DONE)
