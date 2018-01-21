@@ -207,11 +207,28 @@ int main() {
       temp++;
     }
 
-    if (strcmp(args[0], "exit")==0){
-      fi = fopen(".posh_rc","w");
-      putc(hist_index,fi);
-      printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
-      return 0;
+    if ((strcmp(args[0],"exit") == 0)||(strcmp(args[0],"\"exit\"") == 0)||(strcmp(args[0],"'exit'") == 0)){
+      if (temp == 3){
+        if (strcmp(args[1],"--help")==0){
+          printf("exit: usage: exit \nExits the current session of the shell \n");
+        }
+        else if (strcmp(args[1],"--version")==0){
+          printf("exit v1.0.2\n");
+        }
+      }
+      else if (temp > 3){
+        printf("-posh: exit: %s: invalid argument\n",args[1]);
+        fi = fopen(".posh_rc","w");
+        putc(hist_index,fi);
+        printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
+        return 0;
+      }
+      else{
+        fi = fopen(".posh_rc","w");
+        putc(hist_index,fi);
+        printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
+        return 0;
+      }
     }
 
     else if (strcmp(args[0],"cd") == 0){
@@ -266,6 +283,9 @@ int main() {
               printf("");
           }
           exit(0);
+
+        }
+        else{
 
         }
       }
