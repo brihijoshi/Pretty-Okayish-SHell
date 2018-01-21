@@ -1,0 +1,20 @@
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> pwd
+/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1
+posh >>> pwd -L
+/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1
+posh >>> pwd --help
+pwd: usage: pwd [-L]
+posh >>> pwd --version
+pwd v1.0.1
+posh >>> pwd -blahblah
+-posh: pwd: -blahblah: invalid option
+posh >>> cd posh_bin
+posh >>> pwd
+/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/posh_bin
+posh >>> cd ..
+posh >>> pwd
+/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1
+posh >>>

@@ -6,7 +6,7 @@ FLAGS EXECUTED -
 Builtins-
 1. exit: --help, --version
 2. cd: --help, --version, .., ~, (DONE)
-3. echo: -n, -e, --help, --version (DONE)  (Assumption - text in quotes are considered text as a whole)
+3. echo: -n, -e, --help, --version (DONE)  (Assumption - text in quotes are considered text as a whole, only one word given in  -e)
 4. pwd: --help, --version, -L (DONE)
 5. history: -c, -w (DONE), --help, --version
 
@@ -30,9 +30,10 @@ Builtins -
 3. echo: a. Handled no argument
          b. Handled quotes with echo
 4. pwd: a. Invalid option
-         b. In case getcwd fails
+        b. In case getcwd fails
 5. history: a. Invalid option
             b. Invalid argument
+            c. when the shell ends, the new process adds up to the counter
 
 Externals -
 1. cat: a. Wont open file if we dont have read access/file doesn't exist
@@ -44,5 +45,6 @@ Externals -
           b. File exists
 4. rm: a. Invalid option
        b. Incase the file doesn't exist
+       c. doesn't delete non-empty directories
 5. ls: a. if it cannot find the directory
        b. Invalid option

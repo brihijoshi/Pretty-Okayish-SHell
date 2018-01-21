@@ -1,0 +1,62 @@
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> exit
+
+Saving session...
+...copying shared history...
+...saving history
+...truncating history files...
+...completed.
+
+
+[Process completed]
+
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> exit --help
+exit: usage: exit
+Exits the current session of the shell
+posh >>> exit --version
+exit v1.0.2
+posh >>> exit -blahblah
+-posh: exit: -blahblah: invalid argument
+
+Saving session...
+...copying shared history...
+...saving history
+...truncating history files...
+...completed.
+
+
+[Process completed]
+
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> exit fchgjvhkh
+-posh: exit: fchgjvhkh: invalid argument
+
+Saving session...
+...copying shared history...
+...saving history
+...truncating history files...
+...completed.
+
+
+[Process completed]
+
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> "exit"
+
+Saving session...
+...copying shared history...
+...saving history
+...truncating history files...
+...completed.
+
+
+[Process completed]

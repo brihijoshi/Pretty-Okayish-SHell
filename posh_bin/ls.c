@@ -64,15 +64,15 @@ int main(int argc, char const *argv[]) {
 
       }
     }
-    else if (strcmp(argv[1],"-help")==0){
+    else if (strcmp(argv[1],"--help")==0){
       printf("ls: usage: ls[-a | -i]\n");
     }
-    else if (strcmp(argv[1],"-version")==0){
+    else if (strcmp(argv[1],"--version")==0){
       printf("ls v1.0.1\n");
 
     }
     else if (argv[1][0] == '-'){
-      printf("-posh: mkdir: %s: invalid option\n", argv[1]);
+      printf("-posh: ls: %s: invalid option\n", argv[1]);
     }
     else{
       p=opendir(argv[1]);

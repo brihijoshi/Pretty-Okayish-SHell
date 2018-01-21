@@ -29,7 +29,7 @@ int is_builtin(char* cmd){
 void posh_cd(char *args[100],int temp){
   if (temp == 2){
     const char* home = getenv("HOME");
-    if (chdir(args[1]) == -1){
+    if (chdir(home) == -1){
       printf("-posh: cd: Directory couldn't change to HOME\n");
     }
   }
@@ -45,7 +45,7 @@ void posh_cd(char *args[100],int temp){
     }
     else if (strcmp(args[1],"~")==0){
       const char* home = getenv("HOME");
-      if (chdir(args[1]) == -1){
+      if (chdir(home) == -1){
         printf("-posh: cd: Directory couldn't change to HOME\n");
       }
     }
@@ -78,8 +78,10 @@ void posh_echo(char *args[100], int temp){
     char *s = args[2];
     char c;
     while ((c = *s++)){
-      if (c == '\\' && *s){
-          switch (c = *s++){
+      if (c == '\\' && *s)
+        {
+          switch (c = *s++)
+            {
             case 'a': c = '\a'; break;
             case 'b': c = '\b'; break;
             case 'e': c = '\x1B'; break;
@@ -88,10 +90,11 @@ void posh_echo(char *args[100], int temp){
             case 'r': c = '\r'; break;
             case 't': c = '\t'; break;
             case 'v': c = '\v'; break;
+            case '\\': break;
             default:  putchar ('\\'); break;
-          }
+            }
         }
-      putchar (c);
+      putchar(c);
     }
   }
   else if (strcmp(args[1],"--help")==0){
@@ -144,7 +147,7 @@ void posh_history(char *args[100],int temp){
   //https://ss64.com/bash/history.html
   if (temp == 3){
     if(strcmp(args[1],"-c")==0){
-      FILE *fr = fopen(".posh_history","w");
+      FILE *fr = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_history","w");
     }
     else if (strcmp(args[1],"--help")==0){
       printf("history: usage: history [-c | -w <filename>]\n");
@@ -162,7 +165,7 @@ void posh_history(char *args[100],int temp){
   else if (temp == 4){
     if (strcmp(args[1],"-w")==0){
       FILE *new_fr = fopen(args[2],"w");
-      FILE *fr = fopen(".posh_history","r");
+      FILE *fr = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_history","r");
       int line_num;
       char command[255];
       char ch = fgetc(fr);
@@ -178,7 +181,7 @@ void posh_history(char *args[100],int temp){
     }
   }
   else if (temp == 2){
-    FILE *fr = fopen(".posh_history","r");
+    FILE *fr = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_history","r");
     int line_num;
     char command[255];
     char ch = fgetc(fr);
@@ -201,7 +204,7 @@ int main() {
   size_t buf = 0;
   int hist_index;
   FILE *fi;
-  if ((fi = fopen(".posh_rc","r"))==NULL){
+  if ((fi = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_rc","r"))==NULL){
     hist_index = 1;
   }
   else{
@@ -217,7 +220,7 @@ int main() {
     if (strcmp(param,"\n")==0){
       continue;
     }
-    FILE *fw = fopen(".posh_history", "a");
+    FILE *fw = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_history", "a");
     fprintf(fw,"\t%d  %s",hist_index++,param);
     fflush(fw);
     //printf("%s",param);
@@ -229,6 +232,7 @@ int main() {
     }
 
     if ((strcmp(args[0],"exit") == 0)||(strcmp(args[0],"\"exit\"") == 0)||(strcmp(args[0],"'exit'") == 0)){
+      args[0] = "exit";
       if (temp == 3){
         if (strcmp(args[1],"--help")==0){
           printf("exit: usage: exit \nExits the current session of the shell \n");
@@ -236,16 +240,23 @@ int main() {
         else if (strcmp(args[1],"--version")==0){
           printf("exit v1.0.2\n");
         }
+        else{
+          printf("-posh: exit: %s: invalid argument\n",args[1]);
+          fi = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_rc","w");
+          putc(hist_index,fi);
+          printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
+          exit(0);
+        }
       }
       else if (temp > 3){
         printf("-posh: exit: %s: invalid argument\n",args[1]);
-        fi = fopen(".posh_rc","w");
+        fi = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_rc","w");
         putc(hist_index,fi);
         printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
         exit(0);
       }
       else{
-        fi = fopen(".posh_rc","w");
+        fi = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_rc","w");
         putc(hist_index,fi);
         printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
         exit(0);
@@ -257,6 +268,7 @@ int main() {
     }
 
     else if ((strcmp(args[0],"echo") == 0)||(strcmp(args[0],"\"echo\"") == 0)||(strcmp(args[0],"'echo'") == 0)){
+      args[0] = "echo";
       posh_echo(args,temp);
     }
 

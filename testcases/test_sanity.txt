@@ -1,0 +1,29 @@
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> echo hello
+hello
+posh >>> mycommand hello
+-posh: mycommand: command not found
+Following commands are supprted by posh v1.0.2 -
+	cat: usage: cat [-e | -n] [filename]
+	cd: usage: cd [dir]
+	date: usage: date [-u | -r <seconds>]
+	echo: usage: echo [-n | -e] [text]
+	exit: usage: exit
+	Exits the current session of the shell
+	history: usage: history [-c | -w <filename>]
+	ls: usage: ls[-a | -i]
+	mkdir: usage: mkdir [-v | -p] [directory/pathname]
+	pwd: usage: pwd [-L]
+	rm: usage: rm [-i | -v] [file/directory]
+posh >>> exit
+
+Saving session...
+...copying shared history...
+...saving history
+...truncating history files...
+...completed.
+
+
+[Process completed]

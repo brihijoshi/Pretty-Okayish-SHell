@@ -1,0 +1,99 @@
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> history
+	145  "echo" hello
+	146  exit
+	147  echo hello
+	148  echo -n this wont print newline
+	149  echo -e this\nwill\tprocess\nescape\sequences\b\n
+	150  echo -e this\nwill\tprocess\nescape\tsequences\b\n
+	151  echo -e this\nwill\tprocess\nescape\sequences\b
+	152  echo --help
+	153  echo --version
+	154  echo
+	155  "echo" hello
+	156  'echo' hello
+	157  "echo" "hello"
+	158  exit
+	159  exit --help
+	160  exit --version
+	161  exit
+	162  exit -cfhgjvhbk
+	163  exit guvhkb
+	164  "exit"
+	165  echo
+	166  exit
+	167  exit --help
+	168  exit --version
+	169  exit -blahblah
+	170  exit fchgjvhkh
+	171  "exit"
+	172  history
+posh >>> history -w history.txt
+posh >>> cat history.txt
+	145  "echo" hello
+	146  exit
+	147  echo hello
+	148  echo -n this wont print newline
+	149  echo -e this\nwill\tprocess\nescape\sequences\b\n
+	150  echo -e this\nwill\tprocess\nescape\tsequences\b\n
+	151  echo -e this\nwill\tprocess\nescape\sequences\b
+	152  echo --help
+	153  echo --version
+	154  echo
+	155  "echo" hello
+	156  'echo' hello
+	157  "echo" "hello"
+	158  exit
+	159  exit --help
+	160  exit --version
+	161  exit
+	162  exit -cfhgjvhbk
+	163  exit guvhkb
+	164  "exit"
+	165  echo
+	166  exit
+	167  exit --help
+	168  exit --version
+	169  exit -blahblah
+	170  exit fchgjvhkh
+	171  "exit"
+	172  history
+	173  history -w history.txt
+posh >>> history -c
+posh >>> history
+	176  history
+	177  history
+posh >>> history -cfhgjvhkb
+-posh: history: -cfhgjvhkb: invalid option
+posh >>> history gh
+-posh: history: gh: argument not supported
+posh >>> history 3
+-posh: history: 3: argument not supported
+posh >>> exit
+
+Saving session...
+...copying shared history...
+...saving history
+...truncating history files...
+...completed.
+
+
+[Process completed]
+
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> echo this should add up to the prev history
+this should add up to the prev history
+posh >>> history
+	176  history
+	177  history
+	178  history -cfhgjvhkb
+	179  history gh
+	180  history 3
+	181  exit
+	182  echo this should add up to the prev history
+	183  history
+posh >>>

@@ -1,3 +1,4 @@
+Brihis-MacBook-Air:1 asupsc$ posh
 Pretty Okayish SHell
 Author - Brihi Joshi
 posh >>> cat

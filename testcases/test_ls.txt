@@ -1,0 +1,61 @@
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> ls
+history.txt
+info.txt
+Makefile
+posh
+posh.c
+posh_bin
+problem_statement.pdf
+README.md
+testcases
+posh >>> ls -a
+.
+..
+.DS_Store
+.git
+.posh_history
+.posh_rc
+history.txt
+info.txt
+Makefile
+posh
+posh.c
+posh_bin
+problem_statement.pdf
+README.md
+testcases
+posh >>> ls -i
+27121213 history.txt
+27091097 info.txt
+27117078 Makefile
+27121291 posh
+27091100 posh.c
+27120164 posh_bin
+27091099 problem_statement.pdf
+27091081 README.md
+27118317 testcases
+posh >>> ls --help
+ls: usage: ls[-a | -i]
+posh >>> ls --version
+ls v1.0.1
+posh >>> ls nodirectory
+-posh: ls: No such file or directory
+posh >>> ls testcases
+.
+..
+test_cat.txt
+test_cd.txt
+test_date.txt
+test_echo.txt
+test_exit.txt
+test_history.txt
+test_ls.txt
+test_mkdir.txt
+test_pwd.txt
+test_rm.txt
+posh >>> ls -blahblah
+-posh: ls: -blahblah: invalid option
+posh >>> 

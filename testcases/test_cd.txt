@@ -1,0 +1,82 @@
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> cd posh_bin
+posh >>> ls
+cat.c
+date.c
+ls.c
+mkdir.c
+posh_cat
+posh_date
+posh_ls
+posh_mkdir
+posh_rm
+rm.c
+posh >>> cd ..
+posh >>> ls
+info.txt
+Makefile
+posh
+posh.c
+posh_bin
+problem_statement.pdf
+README.md
+testcases
+posh >>> cd --help
+cd: usage: cd [dir]
+posh >>> cd --version
+cd v1.0.1
+posh >>> cd ~
+posh >>> ls
+AndroidStudioProjects
+Applications
+Desktop
+Documents
+Downloads
+eclipse
+esp
+get-pip.py
+Google Drive
+java
+Library
+lua-5.3.4
+MacKeeper Backups
+Movies
+Music
+node_modules
+package-lock.json
+Pictures
+Public
+Samsung
+temp
+Wine Files
+posh >>> cd blah blah
+-posh: cd: blah: No such file or directory
+posh >>> cd -pqrs hcfgvjhbk
+-posh: cd: -pqrs: invalid option
+posh >>> cd
+posh >>> ls
+AndroidStudioProjects
+Applications
+Desktop
+Documents
+Downloads
+eclipse
+esp
+get-pip.py
+Google Drive
+java
+Library
+lua-5.3.4
+MacKeeper Backups
+Movies
+Music
+node_modules
+package-lock.json
+Pictures
+Public
+Samsung
+temp
+Wine Files
+posh >>> 

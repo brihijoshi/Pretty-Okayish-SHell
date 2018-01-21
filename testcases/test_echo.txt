@@ -1,0 +1,24 @@
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> echo hello
+hello
+posh >>> echo -n this wont print newline
+this wont print newlinposh >>>
+posh >>> echo -e this\nwill\tprocess\nescape\sequences\b
+this
+will	process
+escape\sequenceposh >>>
+posh >>> echo --help
+echo: usage: echo [-n | -e] [text]
+posh >>> echo --version
+echo v1.0.1
+posh >>> echo
+
+posh >>> "echo" hello
+hello
+posh >>> 'echo' hello
+hello
+posh >>> "echo" "hello"
+"hello"
+posh >>>

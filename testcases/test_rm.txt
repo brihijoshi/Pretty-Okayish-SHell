@@ -1,0 +1,68 @@
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> rm
+rm: usage: rm [-i | -v] file
+posh >>> rm newdir
+posh >>> ls
+history.txt
+info.txt
+Makefile
+newdir1
+newdir2
+posh
+posh.c
+posh_bin
+problem_statement.pdf
+README.md
+testcases
+posh >>> rm -i newdir1
+remove newdir1? [y/n]	y
+posh >>> ls
+history.txt
+info.txt
+Makefile
+newdir2
+posh
+posh.c
+posh_bin
+problem_statement.pdf
+README.md
+testcases
+posh >>> mkdir newdir
+posh >>> ls
+history.txt
+info.txt
+Makefile
+newdir
+newdir2
+posh
+posh.c
+posh_bin
+problem_statement.pdf
+README.md
+testcases
+posh >>> rm -v newdir
+newdir
+posh >>> rm --help
+rm: usage: rm [-i | -v] file
+posh >>> rm --version
+rm v1.0.1
+posh >>> rm -v newdir2
+-posh: rm: Directory not empty
+posh >>> rm -blahblah gvjhbkj
+-posh: rm: -blahblah: invalid option
+posh >>> rm doesntexist
+-posh: rm: No such file or directory
+posh >>> rm history.txt
+posh >>> ls
+info.txt
+Makefile
+newdir2
+posh
+posh.c
+posh_bin
+problem_statement.pdf
+README.md
+testcases
+posh >>> 

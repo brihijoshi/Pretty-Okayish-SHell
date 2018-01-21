@@ -1,0 +1,30 @@
+Brihis-MacBook-Air:1 asupsc$ posh
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> mkdir
+mkdir: usage: mkdir [-v | -p] directory
+posh >>> mkdir newdir
+posh >>> ls
+history.txt
+info.txt
+Makefile
+newdir
+posh
+posh.c
+posh_bin
+problem_statement.pdf
+README.md
+testcases
+posh >>> mkdir -v newdir
+-posh: mkdir: File exists
+posh >>> mkdir -v newdir1
+mkdir: created directory 'newdir1'
+posh >>> mkdir -p newdir2/newdir3/newdir4
+posh >>> mkdir --help
+mkdir: usage: mkdir [-v | -p] directory
+posh >>> mkdir --version
+mkdir v1.0.1
+posh >>> mkdir -blahblah blah
+-posh: mkdir: -blahblah: invalid option
+posh >>> mkdir newdir
+-posh: mkdir: File exists
