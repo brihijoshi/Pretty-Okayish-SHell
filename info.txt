@@ -12,7 +12,7 @@ Externals -
 2. date: -u, -r <seconds>, --help, --version(DONE)
 3. mkdir: -v, -p,--help, --version (DONE)
 4. rm: -i, -v,--help, --version (DONE)
-5. ls: -a, -i (DONE)
+5. ls: -a, -i,--help, --version (DONE)
 
 BUGS HANDLED  -
 
@@ -20,7 +20,7 @@ Builtins -
 1. exit
 2. cd: a. Invalid directory pathname
         b. Invalid option
-3. echo
+3. echo:
 4. pwd: a. Invalid option
          b. In case getcwd fails
 5. history: a. Invalid option
@@ -37,3 +37,4 @@ Externals -
 4. rm: a. Invalid option
        b. Incase the file doesn't exist
 5. ls: a. if it cannot find the directory
+       b. Invalid option
