@@ -16,6 +16,8 @@ Externals -
 
 BUGS HANDLED  -
 
+General - invalid command displays the list of all the valid commands
+
 Builtins -
 1. exit: a. No arguments supported
          b. Handled quotes with exit

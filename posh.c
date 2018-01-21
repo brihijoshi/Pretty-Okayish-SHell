@@ -96,7 +96,7 @@ void posh_echo(char *args[100], int temp){
 
 void posh_pwd(char *args[100]){
   if (strcmp(args[1],"--help")==0){
-    printf("pwd: usage: pwd\n");
+    printf("pwd: usage: pwd [-L]\n");
   }
   else if (strcmp(args[1],"--version")==0){
     printf("pwd v1.0.1\n");
@@ -127,7 +127,7 @@ void posh_history(char *args[100],int temp){
       FILE *fr = fopen(".posh_history","w");
     }
     else if (strcmp(args[1],"--help")==0){
-      printf("history: usage: history [-c | -w]\n");
+      printf("history: usage: history [-c | -w <filename>]\n");
     }
     else if (strcmp(args[1],"--version")==0){
       printf("history v1.0.2\n");
@@ -221,12 +221,14 @@ int main() {
         fi = fopen(".posh_rc","w");
         putc(hist_index,fi);
         printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
+        break;
         return 0;
       }
       else{
         fi = fopen(".posh_rc","w");
         putc(hist_index,fi);
         printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
+        break;
         return 0;
       }
     }
@@ -286,7 +288,18 @@ int main() {
 
         }
         else{
-
+          printf("-posh: %s: command not found\n",args[0]);
+          printf("Following commands are supprted by posh v1.0.2 -\n");
+          printf("\tcat: usage: cat [-e | -n] [filename]\n");
+          printf("\tcd: usage: cd [dir]\n");
+          printf("\tdate: usage: date [-u | -r <seconds>]\n");
+          printf("\techo: usage: echo [-n | -e] [text]\n");
+          printf("\texit: usage: exit \n\tExits the current session of the shell \n");
+          printf("\thistory: usage: history [-c | -w <filename>]\n");
+          printf("\tls: usage: ls[-a | -i]\n");
+          printf("\tmkdir: usage: mkdir [-v | -p] [directory/pathname]\n");
+          printf("\tpwd: usage: pwd [-L]\n");
+          printf("\trm: usage: rm [-i | -v] [file/directory]\n");
         }
       }
       else {
