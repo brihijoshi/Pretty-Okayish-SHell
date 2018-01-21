@@ -23,6 +23,7 @@ int main(int argc, char const *argv[]) {
   struct passwd *t;
   struct group *g;
 
+
   if (argc == 1){
     p=opendir(".");
     if(p==NULL){

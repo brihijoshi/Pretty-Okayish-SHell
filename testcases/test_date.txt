@@ -1,0 +1,18 @@
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> date
+Sun Jan 21 17:50:18 IST 2018
+posh >>> date -u
+Sun Jan 21 12:20:22 UTC 2018
+posh >>> date -r
+-posh: date: -r: invalid option
+posh >>> date -r 1234567890
+Sat Feb 14 05:01:30 IST 2009
+posh >>> date --help
+date: usage: date [-u | -r <seconds>]
+posh >>> date --version
+date v1.0.1
+posh >>> date -q 5678
+-posh: date: -q: invalid option
+posh >>> date -r dhgfcjvjb
+-posh: date: invalid argument

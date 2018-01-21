@@ -1,24 +1,24 @@
 CC=gcc
 FLAGS = -o
-OBJ = posh_cat posh_date posh_ls posh_mkdir posh_rm posh.c
-ALL = posh_cat posh_date posh_ls posh_mkdir posh_rm posh
+OBJ = ./posh_bin/posh_cat ./posh_bin/posh_date ./posh_bin/posh_ls ./posh_bin/posh_mkdir ./posh_bin/posh_rm posh.c
+ALL = ./posh_bin/posh_cat ./posh_bin/posh_date ./posh_bin/posh_ls ./posh_bin/posh_mkdir ./posh_bin/posh_rm posh
 
 all: $(ALL)
 
-posh_cat: cat.c
-	gcc $(FLAGS) posh_cat cat.c
+./posh_bin/posh_cat: ./posh_bin/cat.c
+	gcc $(FLAGS) ./posh_bin/posh_cat ./posh_bin/cat.c
 
-posh_date: date.c
-	gcc $(FLAGS) posh_date date.c
+./posh_bin/posh_date: ./posh_bin/date.c
+	gcc $(FLAGS) ./posh_bin/posh_date ./posh_bin/date.c
 
-posh_ls: ls.c
-	gcc $(FLAGS) posh_ls ls.c
+./posh_bin/posh_ls: ./posh_bin/ls.c
+	gcc $(FLAGS) ./posh_bin/posh_ls ./posh_bin/ls.c
 
-posh_mkdir: mkdir.c
-	gcc $(FLAGS) posh_mkdir mkdir.c
+./posh_bin/posh_mkdir: ./posh_bin/mkdir.c
+	gcc $(FLAGS) ./posh_bin/posh_mkdir ./posh_bin/mkdir.c
 
-posh_rm: rm.c
-	gcc $(FLAGS) posh_rm rm.c
+./posh_bin/posh_rm: ./posh_bin/rm.c
+	gcc $(FLAGS) ./posh_bin/posh_rm ./posh_bin/rm.c
 
 posh: $(OBJ)
 	gcc $(FLAGS) posh posh.c

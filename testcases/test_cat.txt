@@ -1,0 +1,104 @@
+Pretty Okayish SHell
+Author - Brihi Joshi
+posh >>> cat
+cat: usage: cat [-e | -n] [filename]
+posh >>> cat Makefile
+CC=gcc
+FLAGS = -o
+OBJ = posh_cat posh_date posh_ls posh_mkdir posh_rm posh.c
+ALL = posh_cat posh_date posh_ls posh_mkdir posh_rm posh
+
+all: $(ALL)
+
+posh_cat: cat.c
+	gcc $(FLAGS) posh_cat cat.c
+
+posh_date: date.c
+	gcc $(FLAGS) posh_date date.c
+
+posh_ls: ls.c
+	gcc $(FLAGS) posh_ls ls.c
+
+posh_mkdir: mkdir.c
+	gcc $(FLAGS) posh_mkdir mkdir.c
+
+posh_rm: rm.c
+	gcc $(FLAGS) posh_rm rm.c
+
+posh: $(OBJ)
+	gcc $(FLAGS) posh posh.c
+
+.PHONY: clean
+
+clean:
+	rm -rf *.o $(ALL)
+posh >>> cat -n Makefile
+	1  CC=gcc
+	2  FLAGS = -o
+	3  OBJ = posh_cat posh_date posh_ls posh_mkdir posh_rm posh.c
+	4  ALL = posh_cat posh_date posh_ls posh_mkdir posh_rm posh
+	5
+	6  all: $(ALL)
+	7
+	8  posh_cat: cat.c
+	9  	gcc $(FLAGS) posh_cat cat.c
+	10
+	11  posh_date: date.c
+	12  	gcc $(FLAGS) posh_date date.c
+	13
+	14  posh_ls: ls.c
+	15  	gcc $(FLAGS) posh_ls ls.c
+	16
+	17  posh_mkdir: mkdir.c
+	18  	gcc $(FLAGS) posh_mkdir mkdir.c
+	19
+	20  posh_rm: rm.c
+	21  	gcc $(FLAGS) posh_rm rm.c
+	22
+	23  posh: $(OBJ)
+	24  	gcc $(FLAGS) posh posh.c
+	25
+	26  .PHONY: clean
+	27
+	28  clean:
+	29  	rm -rf *.o $(ALL)
+posh >>> cat -e Makefile
+CC=gcc$
+FLAGS = -o$
+OBJ = posh_cat posh_date posh_ls posh_mkdir posh_rm posh.c$
+ALL = posh_cat posh_date posh_ls posh_mkdir posh_rm posh$
+$
+all: $(ALL)$
+$
+posh_cat: cat.c$
+	gcc $(FLAGS) posh_cat cat.c$
+$
+posh_date: date.c$
+	gcc $(FLAGS) posh_date date.c$
+$
+posh_ls: ls.c$
+	gcc $(FLAGS) posh_ls ls.c$
+$
+posh_mkdir: mkdir.c$
+	gcc $(FLAGS) posh_mkdir mkdir.c$
+$
+posh_rm: rm.c$
+	gcc $(FLAGS) posh_rm rm.c$
+$
+posh: $(OBJ)$
+	gcc $(FLAGS) posh posh.c$
+$
+.PHONY: clean$
+$
+clean:$
+	rm -rf *.o $(ALL)$
+posh >>> cat --help
+cat: usage: cat [-e | -n] [filename]
+posh >>> cat --version
+cat v1.0.1
+posh >>> cat cgfjhgvj
+-posh: cat: cgfjhgvj: Permission denied/file doesn't exist
+posh >>> cat -q fhgvjhb
+-posh: cat: -q: invalid option
+posh >>> cat fjcgh fjgh hkjkjbkjb
+cat: usage: cat [-e | -n] [filename]

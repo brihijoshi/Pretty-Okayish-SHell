@@ -1,8 +1,11 @@
+Change paths in Makefile and posh.c (where comments are made)
+
+
 FLAGS EXECUTED -
 
 Builtins-
 1. exit: --help, --version
-2. cd: --help, --version (DONE)
+2. cd: --help, --version, .., ~, (DONE)
 3. echo: -n, -e, --help, --version (DONE)  (Assumption - text in quotes are considered text as a whole)
 4. pwd: --help, --version, -L (DONE)
 5. history: -c, -w (DONE), --help, --version
@@ -23,6 +26,7 @@ Builtins -
          b. Handled quotes with exit
 2. cd: a. Invalid directory pathname
         b. Invalid option
+      c. nothing entered takes them home
 3. echo: a. Handled no argument
          b. Handled quotes with echo
 4. pwd: a. Invalid option

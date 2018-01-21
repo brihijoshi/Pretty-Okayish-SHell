@@ -26,19 +26,33 @@ int is_builtin(char* cmd){
   return 0;
 }
 
-void posh_cd(char *args[100]){
-  if (strcmp(args[1],"--help")==0){
-    printf("cd: usage: cd [dir]\n");
-  }
-  else if (strcmp(args[1],"--version")==0){
-    printf("cd v1.0.1\n");
-  }
-  else if (args[1][0] == '-'){
-    printf("-posh: cd: %s: invalid option\n",args[1]);
+void posh_cd(char *args[100],int temp){
+  if (temp == 2){
+    const char* home = getenv("HOME");
+    if (chdir(args[1]) == -1){
+      printf("-posh: cd: Directory couldn't change to HOME\n");
+    }
   }
   else{
-    if (chdir(args[1]) == -1){
-      printf("-posh: cd: %s: No such file or directory\n", args[1]);
+    if (strcmp(args[1],"--help")==0){
+      printf("cd: usage: cd [dir]\n");
+    }
+    else if (strcmp(args[1],"--version")==0){
+      printf("cd v1.0.1\n");
+    }
+    else if (args[1][0] == '-'){
+      printf("-posh: cd: %s: invalid option\n",args[1]);
+    }
+    else if (strcmp(args[1],"~")==0){
+      const char* home = getenv("HOME");
+      if (chdir(args[1]) == -1){
+        printf("-posh: cd: Directory couldn't change to HOME\n");
+      }
+    }
+    else{
+      if (chdir(args[1]) == -1){
+        printf("-posh: cd: %s: No such file or directory\n", args[1]);
+      }
     }
   }
 }
@@ -239,7 +253,7 @@ int main() {
     }
 
     else if (strcmp(args[0],"cd") == 0){
-      posh_cd(args);
+      posh_cd(args,temp);
     }
 
     else if ((strcmp(args[0],"echo") == 0)||(strcmp(args[0],"\"echo\"") == 0)||(strcmp(args[0],"'echo'") == 0)){
@@ -259,34 +273,50 @@ int main() {
       int status;
       if (pid == 0) {
         if (strcmp(args[0],"cat")==0){
-          if (execvp("./posh_cat", args) < 0) {
+
+          /*
+          Change the path inside execvp to where your executables are
+          */
+          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/posh_bin/posh_cat", args) < 0) {
               printf("Could not execute command\n");
           }
           exit(0);
         }
         else if (strcmp(args[0],"date")==0){
-          if (execvp("./posh_date", args) < 0) {
+          /*
+          Change the path inside execvp to where your executables are
+          */
+          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/posh_bin/posh_date", args) < 0) {
               printf("Could not execute command\n");
           }
           exit(0);
 
         }
         else if (strcmp(args[0],"mkdir")==0){
-          if (execvp("./posh_mkdir", args) < 0) {
+          /*
+          Change the path inside execvp to where your executables are
+          */
+          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/posh_bin/posh_mkdir", args) < 0) {
               printf("Could not execute command\n");
           }
           exit(0);
 
         }
         else if (strcmp(args[0],"rm")==0){
-          if (execvp("./posh_rm", args) < 0) {
+          /*
+          Change the path inside execvp to where your executables are
+          */
+          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/posh_bin/posh_rm", args) < 0) {
               printf("Could not execute command\n");
           }
           exit(0);
 
         }
         else if (strcmp(args[0],"ls")==0){
-          if (execvp("./posh_ls", args) < 0) {
+          /*
+          Change the path inside execvp to where your executables are
+          */
+          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/posh_bin/posh_ls", args) < 0) {
               printf("");
           }
           exit(0);
