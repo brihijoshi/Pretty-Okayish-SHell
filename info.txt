@@ -9,7 +9,7 @@ Builtins-
 
 Externals -
 1. cat: -n, -e, --help, --version(DONE)
-2. date: -u, -r <seconds> (DONE)
+2. date: -u, -r <seconds>, --help, --version(DONE)
 3. mkdir: -v, -p (DONE)
 4. rm: -i, -v (DONE)
 5. ls: -a, -i (DONE)
@@ -30,3 +30,5 @@ Externals -
 1. cat: a. Wont open file if we dont have read access/file doesn't exist
         b. Invalid option
         c. multiple file arguments shows the usage
+2. date: a. Invalid option
+         b. In case someone gives a character in -r
