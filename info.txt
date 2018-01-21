@@ -34,4 +34,5 @@ Externals -
          b. In case someone gives a character in -r
 3. mkdir: a. Invalid option
           b. File exists
-          c. 
+4. rm: a. Invalid option
+       b. Incase the file doesn't exist
