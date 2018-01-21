@@ -20,7 +20,7 @@ int main(int argc, char const *argv[]) {
   if (argc == 1){
     p=opendir(".");
     if(p==NULL){
-      perror("Cannot find directory");
+      perror("-posh: ls");
       return 0;
     }
     while((d=readdir(p))){
@@ -29,15 +29,13 @@ int main(int argc, char const *argv[]) {
         //printf("TRUE");
         printf("%s\n",d->d_name);
       }
-      //printf("%s\n",d->d_name);
-
     }
   }
   else if (argc == 2){
     if (strcmp(argv[1],"-a")==0){
       p=opendir(".");
       if(p==NULL){
-        perror("Cannot find directory");
+        perror("-posh: ls");
         return 0;
       }
       while((d=readdir(p))){
@@ -47,7 +45,7 @@ int main(int argc, char const *argv[]) {
     else if (strcmp(argv[1],"-i")==0){
       p=opendir(".");
       if(p==NULL){
-        perror("Cannot find directory");
+        perror("-posh: ls");
         return 0;
       }
       while((d=readdir(p))){
@@ -59,16 +57,29 @@ int main(int argc, char const *argv[]) {
 
       }
     }
+    else if (strcmp(argv[1],"-help")==0){
+      printf("ls: usage: ls[-a | -i]\n");
+    }
+    else if (strcmp(argv[1],"-version")==0){
+      printf("ls v1.0.1\n");
+
+    }
+    else if (argv[1][0] == '-'){
+      printf("-posh: mkdir: %s: invalid option\n", argv[1]);
+    }
     else{
       p=opendir(argv[1]);
       if(p==NULL){
-        perror("Cannot find directory");
+        perror("-posh: ls");
         return 0;
       }
       while((d=readdir(p))){
         printf("%s\n",d->d_name);
       }
     }
+  }
+  else {
+    printf("ls: usage: ls[-a | -i]\n");
   }
 
   return 0;

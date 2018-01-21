@@ -10,8 +10,8 @@ Builtins-
 Externals -
 1. cat: -n, -e, --help, --version(DONE)
 2. date: -u, -r <seconds>, --help, --version(DONE)
-3. mkdir: -v, -p (DONE)
-4. rm: -i, -v (DONE)
+3. mkdir: -v, -p,--help, --version (DONE)
+4. rm: -i, -v,--help, --version (DONE)
 5. ls: -a, -i (DONE)
 
 BUGS HANDLED  -
@@ -24,7 +24,7 @@ Builtins -
 4. pwd: a. Invalid option
          b. In case getcwd fails
 5. history: a. Invalid option
-             b. Invalid argument
+            b. Invalid argument
 
 Externals -
 1. cat: a. Wont open file if we dont have read access/file doesn't exist
@@ -36,3 +36,4 @@ Externals -
           b. File exists
 4. rm: a. Invalid option
        b. Incase the file doesn't exist
+5. ls: a. if it cannot find the directory
