@@ -1,8 +1,8 @@
 Brihis-MacBook-Air:1 asupsc$ posh
 Pretty Okayish SHell
 Author - Brihi Joshi
-posh >>> echo hello
-hello
+posh >>> echo justchecking
+justchecking
 posh >>> mycommand hello
 -posh: mycommand: command not found
 Following commands are supprted by posh v1.0.2 -
