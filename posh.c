@@ -219,15 +219,13 @@ int main() {
         fi = fopen(".posh_rc","w");
         putc(hist_index,fi);
         printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
-        break;
-        return 0;
+        exit(0);
       }
       else{
         fi = fopen(".posh_rc","w");
         putc(hist_index,fi);
         printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
-        break;
-        return 0;
+        exit(0);
       }
     }
 
@@ -299,6 +297,7 @@ int main() {
           printf("\tpwd: usage: pwd [-L]\n");
           printf("\trm: usage: rm [-i | -v] [file/directory]\n");
         }
+        exit(EXIT_FAILURE);
       }
       else {
           wait(NULL);
