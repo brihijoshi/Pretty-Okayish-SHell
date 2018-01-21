@@ -74,6 +74,12 @@ void posh_echo(char *args[100], int temp){
       putchar (c);
     }
   }
+  else if (strcmp(args[1],"--help")==0){
+    printf("echo: usage: echo [-n | -e] [text]\n");
+  }
+  else if (strcmp(args[1],"--version")==0){
+    printf("echo v1.0.1\n");
+  }
   else{
     for (int i =1;i<temp-1;i++){
       num_words++;
@@ -204,15 +210,15 @@ int main() {
     if (strcmp(args[0], "exit")==0){
       fi = fopen(".posh_rc","w");
       putc(hist_index,fi);
-      printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n");
-      break;
+      printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
+      return 0;
     }
 
     else if (strcmp(args[0],"cd") == 0){
       posh_cd(args);
     }
 
-    else if (strcmp(args[0],"echo") == 0){
+    else if ((strcmp(args[0],"echo") == 0)||(strcmp(args[0],"\"echo\"") == 0)||(strcmp(args[0],"'echo'") == 0)){
       posh_echo(args,temp);
     }
 
