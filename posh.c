@@ -1,3 +1,10 @@
+/*
+Brihi Joshi
+OS Assignment 0
+2016142
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -186,6 +193,8 @@ int main() {
   else{
     hist_index = getc(fi);
   }
+  printf("Pretty Okayish SHell\n");
+  printf("Author - Brihi Joshi\n");
 
   while (1){
     printf("posh >>> ");

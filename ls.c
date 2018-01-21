@@ -1,3 +1,9 @@
+/*
+Brihi Joshi
+OS Assignment 0
+2016142
+*/
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>

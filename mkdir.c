@@ -1,3 +1,9 @@
+/*
+Brihi Joshi
+OS Assignment 0
+2016142
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>

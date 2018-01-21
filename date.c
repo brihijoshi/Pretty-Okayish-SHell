@@ -1,3 +1,9 @@
+/*
+Brihi Joshi
+OS Assignment 0
+2016142
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <sys/time.h>
