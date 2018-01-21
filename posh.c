@@ -40,7 +40,6 @@ void posh_echo(char *args[100], int temp){
   int len = 0;
   int num_words = 0;
   char* str;
-  //checking for flags
   if (strcmp(args[1],"-n") == 0){
     for (int i=2;i<temp-1;i++){
       num_words++;
@@ -159,7 +158,6 @@ void posh_history(char *args[100],int temp){
   }
   else if (temp == 2){
     FILE *fr = fopen(".posh_history","r");
-    //printf("%d\n",&fr);
     int line_num;
     char command[255];
     char ch = fgetc(fr);

@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <string.h>
-
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <unistd.h>
 
 int main( int argc,char *argv[3] ){
   int fh,i;
