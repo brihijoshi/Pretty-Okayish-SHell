@@ -32,3 +32,6 @@ Externals -
         c. multiple file arguments shows the usage
 2. date: a. Invalid option
          b. In case someone gives a character in -r
+3. mkdir: a. Invalid option
+          b. File exists
+          c. 
