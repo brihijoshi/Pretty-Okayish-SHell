@@ -1,0 +1,92 @@
+cat
+cat Makefile
+cat -n Makefile
+cat -e Makefile
+cat --help
+cat --version
+cat cgfjhgvj
+cat -q Makefile
+cat fjcgh fjgh hkjkjbkjb
+cd src
+ls
+cd ..
+ls
+cd --help
+cd --version
+cd ~
+ls
+cd blah blah
+cd -pqrs hcfgvjhbk
+cd
+ls
+date
+date -u
+date -r
+date -r 1234567890
+date --help
+date --version
+date -q 5678
+date -r dhgfcjvjb
+echo hello
+echo -n this wont print newline
+echo -e this\nwill\tprocess\nescape\sequences\b
+echo --help
+echo --version
+echo
+"echo" hello
+'echo' hello
+"echo" "hello"
+history
+history -w history.txt
+cat history.txt
+history -c
+history
+history -cfhgjvhkb
+history gh
+history 3
+ls
+ls -a
+ls -i
+ls --help
+ls --version
+ls nodirectory
+ls ..
+ls -blahblah
+mkdir
+mkdir newdir
+ls
+mkdir -v newdir
+mkdir -v newdir1
+mkdir -p newdir2/newdir3/newdir4
+mkdir --help
+mkdir --version
+mkdir -blahblah blah
+mkdir newdir
+pwd
+pwd -L
+pwd --help
+pwd --version
+pwd -blahblah
+cd posh_bin
+pwd
+cd ..
+pwd
+rm
+rm newdir
+ls
+rm -i newdir1
+ls
+mkdir newdir
+ls
+rm -v newdir
+rm --help
+rm --version
+rm -v newdir2
+rm -blahblah gvjhbkj
+rm doesntexist
+rm history.txt
+ls
+mycommand hello
+exit --help
+exit --version
+exit -blahblah

@@ -147,7 +147,11 @@ void posh_history(char *args[100],int temp){
   //https://ss64.com/bash/history.html
   if (temp == 3){
     if(strcmp(args[1],"-c")==0){
-      FILE *fr = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_history","w");
+
+      // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+
+      FILE *fr = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/.posh_history","w");
     }
     else if (strcmp(args[1],"--help")==0){
       printf("history: usage: history [-c | -w <filename>]\n");
@@ -165,7 +169,10 @@ void posh_history(char *args[100],int temp){
   else if (temp == 4){
     if (strcmp(args[1],"-w")==0){
       FILE *new_fr = fopen(args[2],"w");
-      FILE *fr = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_history","r");
+
+      // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+      FILE *fr = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/.posh_history","r");
       int line_num;
       char command[255];
       char ch = fgetc(fr);
@@ -181,7 +188,9 @@ void posh_history(char *args[100],int temp){
     }
   }
   else if (temp == 2){
-    FILE *fr = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_history","r");
+    // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+    FILE *fr = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/.posh_history","r");
     int line_num;
     char command[255];
     char ch = fgetc(fr);
@@ -204,7 +213,10 @@ int main() {
   size_t buf = 0;
   int hist_index;
   FILE *fi;
-  if ((fi = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_rc","r"))==NULL){
+
+  // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+  if ((fi = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/.posh_rc","r"))==NULL){
     hist_index = 1;
   }
   else{
@@ -220,7 +232,10 @@ int main() {
     if (strcmp(param,"\n")==0){
       continue;
     }
-    FILE *fw = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_history", "a");
+
+    // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+    FILE *fw = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/.posh_history", "a");
     fprintf(fw,"\t%d  %s",hist_index++,param);
     fflush(fw);
     //printf("%s",param);
@@ -242,7 +257,10 @@ int main() {
         }
         else{
           printf("-posh: exit: %s: invalid argument\n",args[1]);
-          fi = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_rc","w");
+
+          // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+          fi = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/.posh_rc","w");
           putc(hist_index,fi);
           printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
           exit(0);
@@ -250,13 +268,19 @@ int main() {
       }
       else if (temp > 3){
         printf("-posh: exit: %s: invalid argument\n",args[1]);
-        fi = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_rc","w");
+
+        // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+        fi = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/.posh_rc","w");
         putc(hist_index,fi);
         printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
         exit(0);
       }
       else{
-        fi = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/.posh_rc","w");
+
+        // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+        fi = fopen("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/.posh_rc","w");
         putc(hist_index,fi);
         printf("\nSaving session...\n...copying shared history...\n...saving history\n...truncating history files...\n...completed.\n\n\n[Process completed]\n\n");
         exit(0);
@@ -286,49 +310,48 @@ int main() {
       if (pid == 0) {
         if (strcmp(args[0],"cat")==0){
 
-          /*
-          Change the path inside execvp to where your executables are
-          */
-          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/posh_bin/posh_cat", args) < 0) {
+          // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/posh_cat", args) < 0) {
               printf("Could not execute command\n");
           }
           exit(0);
         }
         else if (strcmp(args[0],"date")==0){
-          /*
-          Change the path inside execvp to where your executables are
-          */
-          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/posh_bin/posh_date", args) < 0) {
+
+          // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/posh_date", args) < 0) {
               printf("Could not execute command\n");
           }
           exit(0);
 
         }
         else if (strcmp(args[0],"mkdir")==0){
-          /*
-          Change the path inside execvp to where your executables are
-          */
-          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/posh_bin/posh_mkdir", args) < 0) {
+
+          // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/posh_mkdir", args) < 0) {
               printf("Could not execute command\n");
           }
           exit(0);
 
         }
         else if (strcmp(args[0],"rm")==0){
-          /*
-          Change the path inside execvp to where your executables are
-          */
-          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/posh_bin/posh_rm", args) < 0) {
+
+          // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/posh_rm", args) < 0) {
               printf("Could not execute command\n");
           }
           exit(0);
 
         }
         else if (strcmp(args[0],"ls")==0){
-          /*
-          Change the path inside execvp to where your executables are
-          */
-          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/posh_bin/posh_ls", args) < 0) {
+
+          // CHANGE FILE PATH HERE ACCORDING TO YOUR SYSTEM
+
+          if (execvp("/Users/asupsc/Desktop/IIIT/SEM4/OS/Assignments/1/src/posh_ls", args) < 0) {
               printf("");
           }
           exit(0);
